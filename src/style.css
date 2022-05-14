@@ -1,0 +1,36 @@
+.root{
+    /*-fx-background-image: url();*/
+
+}
+.label{
+    -fx-text-fill: rgb(0, 205, 212);
+    -fx-font-size:15px;
+}
+.button{
+    -fx-text-fill: #2c2929;
+    -fx-background-radius: 4;
+    -fx-font-size:15;
+    -fx-font-weight:bold;
+    -fx-opacity:1;
+}
+.button-blue{
+    -fx-background-color:rgba(15, 15, 56, 0.384);
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 17px;
+    -fx-width:150px;
+    -fx-font-size:22px;
+}
+.title{
+    -fx-font-size:35px;
+    -fx-text-fill: rgb(0, 205, 212);
+    -fx-font-weight:bold;
+}
+.error{
+    -fx-text-fill: red;
+    -fx-font-weight:bold;
+    -fx-font-size:20px;
+}
+.button-teacher{
+    -fx-background-color: transparent;
+}
