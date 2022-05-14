@@ -27,7 +27,7 @@ public class Main extends Application {
 		Image image1 = new Image("images/admin.png");
 		Image image2 = new Image("images/teacher1.png");
 		Image image3 = new Image("images/student1.png");
-		Image imgShqip = new Image("images/kosovee.png");
+		Image imgShqip = new Image("images/Flag_of_Albania.png");
 		Image imgEnglish = new Image("images/english.png");
 		ImageView imgViewShqip = new ImageView(imgShqip);
 		ImageView imgViewEnglish = new ImageView(imgEnglish);
@@ -99,7 +99,7 @@ public class Main extends Application {
 		mainPain.setCenter(pane);
 		Scene scene = new Scene(mainPain, 700, 400);
 		scene.getStylesheets().add("style.css");
-		pane.setStyle("-fx-background-image: url(images/main-background.4jpeg.jpeg);-fx-background-size:cover;");
+		pane.setStyle("-fx-background-image: url(images/test1.jpeg);-fx-background-size:cover;");
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Main");
 		primaryStage.show();
