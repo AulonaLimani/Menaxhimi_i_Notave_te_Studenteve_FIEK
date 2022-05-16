@@ -77,8 +77,6 @@ public class Main extends Application {
 		pane.setStyle("-fx-padding:10;");
 		pane.setHgap(50);
 		pane.setVgap(20);
-//		pane.setHalignment(admLabel, HPos.CENTER);
-//		pane.setHalignment(tchLabel, HPos.CENTER);
 		pane.setHalignment(admin, HPos.CENTER);
 		pane.setHalignment(teacher, HPos.CENTER);
 		pane.setHalignment(student, HPos.CENTER);
