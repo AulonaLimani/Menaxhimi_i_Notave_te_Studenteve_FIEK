@@ -91,3 +91,40 @@ public class GradesTab {
             updateGrade();
         });
 
+         // Left Pane
+
+        VBox leftPane = new VBox(50);
+
+        leftPane.getChildren().addAll(formPane, buttonsPane);
+
+        // Grades table
+
+        TableColumn<String, Grades> column1 = I18N.getTblColumn("periodid");
+        column1.setCellValueFactory(new PropertyValueFactory("periodID"));
+        column1.setPrefWidth(80);
+
+        TableColumn<String, Grades> column2 = I18N.getTblColumn("nrID");
+        column2.setCellValueFactory(new PropertyValueFactory("studentID"));
+        column2.setPrefWidth(120);
+
+        TableColumn<String, Grades> column3 = I18N.getTblColumn("subjectid");
+        column3.setCellValueFactory(new PropertyValueFactory("subjectID"));
+        column3.setPrefWidth(80);
+
+        TableColumn<String, Grades> column4 = I18N.getTblColumn("projects");
+        column4.setCellValueFactory(new PropertyValueFactory("projects"));
+        column4.setPrefWidth(80);
+
+
+        TableColumn<String, Grades> column5 = I18N.getTblColumn("finaltest");
+        column5.setCellValueFactory(new PropertyValueFactory("finalTest"));
+        column5.setPrefWidth(100);
+
+        TableColumn<String, Grades> column6 = I18N.getTblColumn("finalperiodmark");
+        column6.setCellValueFactory(new PropertyValueFactory("finalPeriodMark"));
+        column6.setPrefWidth(140);
+
+        TableColumn<String, Grades> column7 = I18N.getTblColumn("finalgrade");
+        column7.setCellValueFactory(new PropertyValueFactory("finalGrade"));
+        column7.setPrefWidth(140);
+
