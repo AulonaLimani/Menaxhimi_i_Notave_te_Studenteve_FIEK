@@ -47,3 +47,19 @@ public class TeacherLogin
 		btnLogin.setOnAction(e -> {
 			loginStudent();
 		});
+		pane.setOnKeyPressed(e-> {
+			if(e.getCode() == KeyCode.ENTER) {
+				loginStudent();
+			}
+		});
+		pane.getChildren().addAll(title, loginPane);
+		title.getStyleClass().add("title");
+		pane.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(pane, 500, 330);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		ErrorResult.getStyleClass().add("error");
+		btnLogin.getStyleClass().add("button-blue");
+		scene.getStylesheets().add("style.css");
+
+	}
