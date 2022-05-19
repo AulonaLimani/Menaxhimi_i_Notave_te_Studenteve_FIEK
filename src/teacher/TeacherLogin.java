@@ -99,3 +99,21 @@ public class TeacherLogin
 			}
 
 		}
+catch (SQLException e)
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Database problem!");
+			alert.setHeaderText(null);
+			alert.setContentText("Cannot connect to database!");
+
+			alert.showAndWait();
+
+			System.exit(1);
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		Application.launch(args);
+	}
+}
