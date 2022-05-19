@@ -33,6 +33,38 @@ public class Grades
 	{
 		return periodID;
 	}
+	
+	public static boolean updateGrade(String periodID, String studentID, String subjectID,
+									  double projects,
+									  double finalTest, double finalPeriodMark, double finalGrade)
+	{
+		String query = "UPDATE Grades SET  "
+				+ "projects=?,  "
+				+ " finalTest=?, finalPeriodMark=? WHERE studentID=? AND periodID=? AND subjectID=? AND finalGrade = ?";
+
+		try
+		{
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+
+
+			preparedStatement.setDouble(1, projects);
+			preparedStatement.setDouble(2, finalTest);
+			preparedStatement.setDouble(3, finalPeriodMark);
+			preparedStatement.setString(4, studentID);
+			preparedStatement.setString(5, periodID);
+			preparedStatement.setString(6, subjectID);
+			preparedStatement.setDouble(7, finalGrade);
+
+			return (preparedStatement.executeUpdate() > 0);
+		}
+		catch (SQLException ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+
 
 	public void setPeriodID(String periodID)
 	{
