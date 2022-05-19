@@ -56,4 +56,38 @@ public class GradesTab {
         deleteBtn = I18N.getButton("delete");
         clearBtn = I18N.getButton("clear");
 
+ formPane.addRow(0, I18N.getLabel("periodid"), periodIDTxt);
+        formPane.addRow(1, I18N.getLabel("nrID"), studentIDTxt);
+        formPane.addRow(2, I18N.getLabel("subjectid"), subjectIDTxt);
+        formPane.addRow(7, I18N.getLabel("projects"), projectsTxt);
+        formPane.addRow(12, I18N.getLabel("finaltest"), finalTestTxt);
+        formPane.addRow(14, I18N.getLabel("finalperiodmark"), finalPeriodMarkTxt);
+        formPane.addRow(14, I18N.getLabel("finalgrade"), finalGradeTxt);
+
+        formPane.setHgap(10);
+        formPane.setVgap(10);
+
+        finalPeriodMarkTxt.setDisable(true);
+        finalGradeTxt.setDisable(true);
+
+        // Buttons pane
+        HBox buttonsPane = new HBox(10);
+
+        buttonsPane.getChildren().addAll(insertBtn, updateBtn, deleteBtn, clearBtn);
+
+        insertBtn.setOnAction(e -> {
+            insertGrade();
+        });
+
+        clearBtn.setOnAction(e -> {
+            clearForm();
+        });
+
+        deleteBtn.setOnAction(e -> {
+            deleteGrade();
+        });
+
+        updateBtn.setOnAction(e -> {
+            updateGrade();
+        });
 
