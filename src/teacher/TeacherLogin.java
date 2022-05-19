@@ -29,3 +29,21 @@ public class TeacherLogin
 	private Button btnLogin = new Button("Login");
 	private Label title = new Label("Login as Teacher");
 	private Stage mainStage;
+
+	public void createStage()
+	{
+		Stage primaryStage = new Stage();
+		VBox pane = new VBox(60);
+		mainStage = primaryStage;
+		GridPane loginPane = new GridPane();
+		loginPane.addRow(0, new Label("ID"), teacherID);
+		loginPane.addRow(1, new Label("Password"), password);
+		loginPane.add(btnLogin, 1, 3);
+		loginPane.add(ErrorResult, 1, 4);
+		loginPane.setHgap(35);
+		loginPane.setVgap(10);
+		loginPane.setHalignment(btnLogin, HPos.RIGHT);
+		loginPane.setAlignment(Pos.CENTER);
+		btnLogin.setOnAction(e -> {
+			loginStudent();
+		});
