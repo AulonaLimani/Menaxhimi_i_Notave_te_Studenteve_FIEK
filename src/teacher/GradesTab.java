@@ -174,3 +174,54 @@ public class GradesTab {
 
         tab.setContent(mainPane);
     }
+    
+     public void showGrades() {
+        List<Grades> grades = Grades.getGrades();
+
+        ObservableList<Grades> gradesList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < grades.size(); i++) {
+            gradesList.add(grades.get(i));
+        }
+
+        gradesTable.setItems(gradesList);
+    }
+
+    public void clearForm() {
+        periodIDTxt.setText("");
+        studentIDTxt.setText("");
+        subjectIDTxt.setText("");
+        projectsTxt.setText("");
+        finalTestTxt.setText("");
+        finalPeriodMarkTxt.setText("");
+        finalGradeTxt.setText("");
+    }
+
+    public void insertGrade() {
+
+        double finalPeriodMark = Double.parseDouble(projectsTxt.getText()) + Double.parseDouble(finalTestTxt.getText());
+//		double finalGrade = finalPeriodMark;
+        double finalGrade=5;
+
+        if (finalPeriodMark <= 100 && finalPeriodMark >= 90) {
+            finalGrade = 10;
+        } else if (finalPeriodMark <90 && finalPeriodMark >= 80) {
+            finalGrade = 9;
+        } else if (finalPeriodMark < 80 && finalPeriodMark >= 70) {
+            finalGrade = 8;
+        } else if (finalPeriodMark < 70 && finalPeriodMark >= 60) {
+            finalGrade = 7;
+        } else if (finalPeriodMark < 60 && finalPeriodMark >= 50) {
+            finalGrade = 6;
+        } else if (finalPeriodMark < 50) {
+            finalGrade = 5;
+        }
+
+        if (Grades.addGrade(periodIDTxt.getText(), studentIDTxt.getText(), subjectIDTxt.getText(),
+                Double.parseDouble(projectsTxt.getText()), Double.parseDouble(finalTestTxt.getText()),
+                finalPeriodMark, finalGrade)) {
+            showGrades();
+            clearForm();
+        }
+    }
+
