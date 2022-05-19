@@ -224,4 +224,21 @@ public class GradesTab {
             clearForm();
         }
     }
+    
+      public void updateGrade() {
+        if (Grades.updateGrade(periodIDTxt.getText(), studentIDTxt.getText(), subjectIDTxt.getText(),
+                Double.parseDouble(projectsTxt.getText()), Double.parseDouble(finalTestTxt.getText()),
+                Double.parseDouble(finalPeriodMarkTxt.getText()), Double.parseDouble(finalGradeTxt.getText()))) {
+            showGrades();
+            clearForm();
+        }
+    }
+
+    public void deleteGrade() {
+        if (Grades.deleteGrade(periodIDTxt.getText(), studentIDTxt.getText(), subjectIDTxt.getText())) {
+            showGrades();
+            clearForm();
+        }
+    }
+
 
