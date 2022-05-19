@@ -25,4 +25,35 @@ public class GradesTab {
     public GradesTab(Tab tab) {
         this.tab = tab;
     }
+    public GradesTab() {
+
+    }
+
+    // Text fields
+    private TextField periodIDTxt = new TextField();
+    private TextField studentIDTxt = new TextField();
+    private TextField subjectIDTxt = new TextField();
+    private TextField projectsTxt = new TextField();
+    private TextField finalTestTxt = new TextField();
+    private TextField finalPeriodMarkTxt = new TextField();
+    private TextField finalGradeTxt = new TextField();
+
+    // Buttons
+    private Button insertBtn = new Button();
+    private Button updateBtn = new Button();
+    private Button deleteBtn = new Button();
+    private Button clearBtn = new Button();
+
+
+    // Table views
+    private TableView gradesTable = new TableView();
+
+    public void open() {
+        // Form pane
+        GridPane formPane = new GridPane();
+        insertBtn = I18N.getButton("insert");
+        updateBtn = I18N.getButton("insert");
+        deleteBtn = I18N.getButton("delete");
+        clearBtn = I18N.getButton("clear");
+
 
