@@ -159,4 +159,52 @@ public double getFinalGrade()
 			return false;
 		}
 	}
+	
+	public static boolean deleteGrade(String periodID, String studentID, String subjectID)
+	{
+		String query = "Delete from Grades where periodID=? AND studentID=? AND subjectID=?";
+
+		try
+		{
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			preparedStatement.setString(1, periodID);
+			preparedStatement.setString(2, studentID);
+			preparedStatement.setString(3, subjectID);
+			return (preparedStatement.executeUpdate() > 0);
+		}
+		catch (SQLException ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	public static List<Grades> getGrades()
+	{
+		List<Grades> gradeList = new ArrayList();
+
+		String query = "Select * from Grades";
+
+		try
+		{
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next())
+			{
+				Grades grade = new Grades(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getDouble(4), resultSet.getDouble(5), resultSet.getDouble(6),resultSet.getDouble(7));
+
+				gradeList.add(grade);
+			}
+		}
+		catch (SQLException ex)
+		{
+			ex.printStackTrace();
+		}
+
+		return gradeList;
+	}
+
+}
 
