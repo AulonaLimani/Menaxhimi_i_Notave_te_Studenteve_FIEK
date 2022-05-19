@@ -128,3 +128,49 @@ public class GradesTab {
         column7.setCellValueFactory(new PropertyValueFactory("finalGrade"));
         column7.setPrefWidth(140);
 
+  gradesTable.getColumns().add(column1);
+        gradesTable.getColumns().add(column2);
+        gradesTable.getColumns().add(column3);
+        gradesTable.getColumns().add(column4);
+        gradesTable.getColumns().add(column5);
+        gradesTable.getColumns().add(column6);
+        gradesTable.getColumns().add(column7);
+
+        gradesTable.setRowFactory(tv -> {
+            TableRow<Grades> row = new TableRow<>();
+
+            row.setOnMouseClicked(e -> {
+
+                periodIDTxt.setText(row.getItem().getPeriodID());
+                studentIDTxt.setText(row.getItem().getStudentID());
+                subjectIDTxt.setText(row.getItem().getSubjectID());
+                projectsTxt.setText(String.valueOf(row.getItem().getProjects()));
+                finalTestTxt.setText(String.valueOf(row.getItem().getFinalTest()));
+                finalPeriodMarkTxt.setText(String.valueOf(row.getItem().getFinalPeriodMark()));
+                finalGradeTxt.setText(String.valueOf(row.getItem().getFinalGrade()));
+
+                finalPeriodMarkTxt.setDisable(true);
+                deleteBtn.setOnKeyPressed(ev -> {
+                    if (ev.isControlDown() && ev.getCode() == KeyCode.D) {
+                        deleteGrade();
+                    }
+                });
+            });
+
+            return row;
+        });
+
+        gradesTable.setPrefWidth(1360);
+        gradesTable.setPrefHeight(200);
+
+        // Main Pane
+        HBox mainPane = new HBox(10);
+
+        mainPane.getChildren().addAll(leftPane, gradesTable);
+
+        mainPane.setPadding(new Insets(15, 15, 15, 15));
+
+        showGrades();
+
+        tab.setContent(mainPane);
+    }
