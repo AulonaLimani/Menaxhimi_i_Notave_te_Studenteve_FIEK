@@ -63,3 +63,39 @@ public class TeacherLogin
 		scene.getStylesheets().add("style.css");
 
 	}
+	
+	public void loginStudent()
+	{      
+		String query = "Select * from Teacher where teacherID = ? AND password = ?";
+		try
+		{
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			preparedStatement.setString(1, teacherID.getText());
+			preparedStatement.setString(2, Hash.SHA1(password.getText()));
+
+
+			ResultSet result = preparedStatement.executeQuery();
+
+			if (result.next())
+			{
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Logged in");
+				alert.setHeaderText(null);
+				alert.setContentText("You are log in!");
+
+				alert.showAndWait();
+
+				//				mainStage.show();
+				//				mainStage.hide();
+				//				StudentsPanel.createStage();
+				JavaFXMenu obj = new JavaFXMenu();
+				obj.createStage();
+
+				//				System.exit(1);
+			}
+			else
+			{
+				ErrorResult.setText("Email or Password Incorrect");
+			}
+
+		}
