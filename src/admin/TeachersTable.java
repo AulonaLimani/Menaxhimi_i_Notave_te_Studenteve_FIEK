@@ -95,3 +95,50 @@ public class TeachersTable {
 		this.subjectID = subjectID;
 	}
 
+	public static boolean addTeachers(String teacherID, String teacherName, String teacherSurname, String phoneNumber,
+			String email, String password, String addressID, String subjectID) {
+		String query = "INSERT INTO Teacher(teacherID, teacherName, teacherSurname, phoneNumber, email, password, addressID, subjectID)"
+				+ "VALUES(?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+
+			preparedStatement.setString(1, teacherID);
+			preparedStatement.setString(2, teacherName);
+			preparedStatement.setString(3, teacherSurname);
+			preparedStatement.setString(4, phoneNumber);
+			preparedStatement.setString(5, email);
+			preparedStatement.setString(6, Hash.SHA1(password));
+			preparedStatement.setString(7, addressID);
+			preparedStatement.setString(8, subjectID);
+
+			return (preparedStatement.executeUpdate() > 0);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	public static boolean updateTeachers(String teacherID, String teacherName, String teacherSurname,
+			String phoneNumber, String email, String password, String addressID, String subjectID) {
+		String query = "UPDATE Teacher SET teacherName=?, teacherSurname=?, phoneNumber=?, email=?, password=?, addressID=?, subjectID=?"
+				+ "WHERE teacherID=?";
+
+		try {
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+
+			preparedStatement.setString(1, teacherName);
+			preparedStatement.setString(2, teacherSurname);
+			preparedStatement.setString(3, phoneNumber);
+			preparedStatement.setString(4, email);
+			preparedStatement.setString(5, Hash.SHA1(password));
+			preparedStatement.setString(6, addressID);
+			preparedStatement.setString(7, subjectID);
+			preparedStatement.setString(8, teacherID);
+
+			return (preparedStatement.executeUpdate() > 0);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
