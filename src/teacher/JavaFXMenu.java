@@ -51,3 +51,34 @@ public void createStage()
 		Scene scene = new Scene(scrollPane);
 		stage.setScene(scene);
 		stage.show();
+	}
+
+	private VBox Menu()
+	{
+		VBox vbox = new VBox();
+		vbox.setPrefWidth(50);
+
+		vbox.getChildren().add(Item(String.valueOf("vendos")));
+//		vbox.getChildren().add(Item(String.valueOf("showresults")));
+		vbox.getChildren().add(Item(String.valueOf("nota")));
+//		vbox.getChildren().add(Item(String.valueOf("oret")));
+
+		vbox.setStyle("-fx-background-color: #CCCCCC");
+		return vbox;
+	}
+
+	private HBox Item(String icon)
+	{
+		Image image = new Image(JavaFXMenu.class.getResource("/images/" + icon + ".png").toExternalForm());
+		ImageView imageView = new ImageView(image);
+		Button btn = new Button();
+		btn.setGraphic(imageView);
+		btn.setPrefSize(45, 50);
+		btn.setStyle("-fx-background-color: #CCCCCC");
+
+//		Tab tabOret = new Tab("Oret");
+		Tab tabVendos = new Tab("Vendos");
+		Tab tabNota = new Tab("Nota");
+//		Tab tabShowResults = new Tab("Show Results");
+		
+		btn.setOnMouseClicked(e -> {
