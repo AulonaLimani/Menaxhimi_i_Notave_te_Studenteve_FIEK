@@ -142,3 +142,42 @@ switch (icon)
 		});
 		tabNota.setOnClosed(event -> {
 			openTabs.remove(tabNota);
+			});
+//		tabShowResults.setOnClosed(event -> {
+//			openTabs.remove(tabShowResults);
+//		});
+
+		btn.setOnMouseReleased(e -> {
+			root.setCenter(tabPane);
+		});
+
+		Pane paneIndicator = new Pane();
+		paneIndicator.setPrefSize(5, 50);
+		paneIndicator.setStyle("-fx-background-color: #CCCCCC");
+
+		menuDecorator(btn, paneIndicator);
+
+		HBox hbox = new HBox(paneIndicator, btn);
+
+		return hbox;
+
+	}
+
+	private void menuDecorator(Button btn, Pane pane)
+	{
+		btn.setOnMouseEntered(value -> {
+			btn.setStyle("-fx-background-color: #999999");
+			pane.setStyle("-fx-background-color: #999999");
+		});
+
+		btn.setOnMouseExited(value -> {
+			btn.setStyle("-fx-background-color: #CCCCCC");
+			pane.setStyle("-fx-background-color: #CCCCCC");
+		});
+	}
+	
+	public static void main(String[] args)
+	{
+		
+	}
+}
