@@ -141,4 +141,39 @@ public class TeachersTable {
 			return false;
 		}
 	}
+public static boolean deleteTeachers(String id) {
+		String query = "Delete from Teacher where teacherID=?";
+
+		try {
+
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			preparedStatement.setString(1, id);
+			return (preparedStatement.executeUpdate() > 0);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	public static List<TeachersTable> getTeachers() {
+		List<TeachersTable> teachersList = new ArrayList();
+
+		String query = "Select * from teacher";
+
+		try {
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				TeachersTable teachers = new TeachersTable(resultSet.getString(1), resultSet.getString(2),
+						resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6),
+						resultSet.getString(7), resultSet.getString(8));
+				teachersList.add(teachers);
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+		return teachersList;
+	}
 
