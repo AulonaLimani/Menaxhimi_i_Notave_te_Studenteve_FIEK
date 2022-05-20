@@ -27,3 +27,27 @@ public class JavaFXMenu
 	private TabPane tabPane = new TabPane();
 	List<Tab> openTabs = new ArrayList<>();
 	SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+public void createStage()
+	{
+		Stage stage = new Stage();
+		ScrollPane scrollPane = new ScrollPane();
+		
+		MenuBar menuBar = new MenuBar();
+		Menu menu1 = new Menu("Menu 1");
+		menuBar.getMenus().add(menu1);
+
+		root.setTop(MainMenu.mainMenu());
+		root.setLeft(Menu());
+		
+		// Set content for ScrollPane
+        scrollPane.setContent(root);
+ 
+        // Always show vertical scroll bar
+        scrollPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+        
+        // Horizontal scroll bar is only displayed when needed
+        scrollPane.setHbarPolicy(ScrollBarPolicy.ALWAYS);
+		
+		Scene scene = new Scene(scrollPane);
+		stage.setScene(scene);
+		stage.show();
