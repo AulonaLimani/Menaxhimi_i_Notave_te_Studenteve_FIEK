@@ -82,3 +82,63 @@ public void createStage()
 //		Tab tabShowResults = new Tab("Show Results");
 		
 		btn.setOnMouseClicked(e -> {
+switch (icon)
+			{
+//			case "oret":
+//				if (!openTabs.contains(tabOret))
+//				{
+//					tabPane.getTabs().addAll(tabOret);
+//					openTabs.add(tabOret);
+//				}
+//				else
+//				{
+//					selectionModel.select(tabOret);
+//				}
+//				break;
+			case "vendos":
+				if (!openTabs.contains(tabVendos))
+				{
+					tabPane.getTabs().addAll(tabVendos);
+					new ChartTab(tabVendos).open();
+					openTabs.add(tabVendos);
+				}
+				else
+				{
+					selectionModel.select(tabVendos);
+				}
+				break;
+			case "nota":
+				if (!openTabs.contains(tabNota))
+				{
+					tabPane.getTabs().addAll(tabNota);
+					new GradesTab(tabNota).open();
+					openTabs.add(tabNota);
+				}
+				else
+				{
+					selectionModel.select(tabNota);
+				}
+				break;
+//			case "showresults":
+//				if (!openTabs.contains(tabShowResults))
+//				{
+//					tabPane.getTabs().addAll(tabShowResults);
+//					new FinalGradeTab(tabShowResults).open();
+//					openTabs.add(tabShowResults);
+//				}
+//				else
+//				{
+//					selectionModel.select(tabShowResults);
+//				}
+//				break;
+			}
+		});
+		
+//		tabOret.setOnClosed(event -> {
+//			openTabs.remove(tabOret);
+//		});
+		tabVendos.setOnClosed(event -> {
+			openTabs.remove(tabVendos);
+		});
+		tabNota.setOnClosed(event -> {
+			openTabs.remove(tabNota);
