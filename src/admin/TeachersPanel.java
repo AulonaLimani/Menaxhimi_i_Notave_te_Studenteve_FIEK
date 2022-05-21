@@ -296,3 +296,75 @@ itmAbout.setOnAction(e -> {
 	}
 
 
+	public void showTeachers() {
+		List<TeachersTable> teachers = TeachersTable.getTeachers();
+
+		ObservableList<TeachersTable> teachersList = FXCollections.observableArrayList();
+
+		for (int i = 0; i < teachers.size(); i++) {
+			teachersList.add(teachers.get(i));
+		}
+
+		teachersTable.setItems(teachersList);
+	}
+
+	public void insertTeachers() {
+
+		if (TeachersTable.addTeachers(teacherID.getText(), teacherName.getText(), teacherSurname.getText(),
+				phoneNumber.getText(), email.getText(), password.getText(), addressID.getText(), subjectID.getText())) {
+			showTeachers();
+			clearForm();
+		}
+	}
+
+	private void deleteTeachers() {
+		if (TeachersTable.deleteTeachers(teacherID.getText())) {
+			showTeachers();
+			clearForm();
+		}
+	};
+
+	private void updateTeachers() {
+		if (TeachersTable.updateTeachers(teacherID.getText(), teacherName.getText(), teacherSurname.getText(),
+				phoneNumber.getText(), email.getText(), password.getText(), addressID.getText(), subjectID.getText())) {
+			showTeachers();
+			clearForm();
+		}
+	};
+
+	public void clearForm() {
+		teacherID.setText("");
+		teacherName.setText("");
+		teacherSurname.setText("");
+		phoneNumber.setText("");
+		email.setText("");
+		password.setText("");
+		addressID.setText("");
+		subjectID.setText("");
+	}
+
+	private void adminSetAllEnable() {
+		teacherID.setDisable(false);
+		teacherName.setDisable(false);
+		teacherSurname.setDisable(false);
+		phoneNumber.setDisable(false);
+		email.setDisable(false);
+		password.setDisable(false);
+		addressID.setDisable(false);
+		subjectID.setDisable(false);
+
+	}
+
+	private void adminSetAllDisable() {
+		teacherID.setDisable(true);
+		teacherName.setDisable(true);
+		teacherSurname.setDisable(true);
+		phoneNumber.setDisable(true);
+		email.setDisable(true);
+		password.setDisable(true);
+		addressID.setDisable(true);
+		subjectID.setDisable(true);
+	}
+
+}
+
