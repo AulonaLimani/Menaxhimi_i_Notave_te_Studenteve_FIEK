@@ -243,3 +243,56 @@ itmAbout.setOnAction(e -> {
 		gridPane1.setHgap(15);
 
 
+		VBox vbox3 = new VBox();
+
+		vbox3.getChildren().add(label_2);
+		vbox3.getChildren().add(gridPane1);
+
+		btnSave.setOnAction(e -> {
+			insertTeachers();
+		});
+
+		btnClear.setOnAction(e -> {
+			clearForm();
+			adminSetAllDisable();
+		});
+		btnEdit.setOnAction(e -> {
+			updateTeachers();
+		});
+		btnDelete.setOnAction(e -> {
+			deleteTeachers();
+		});
+		btnAddNew.setOnAction(e -> {
+			adminSetAllEnable();
+		});
+		HBox hbox5 = new HBox();
+
+		hbox5.getChildren().addAll(btnClear, btnSave);
+
+		btnClear.setStyle("-fx-background-color:#a81414;-fx-text-fill:white;");
+		btnSave.setStyle("-fx-background-color:#33a135;-fx-text-fill:white;");
+
+		hbox5.setAlignment(Pos.BASELINE_RIGHT);
+		hbox5.setSpacing(20);
+		hbox5.setPadding(new Insets(7, 17, 10, 1));
+
+		vbox.getChildren().add(vbox2);
+		vbox.getChildren().add(vbox3);
+		vbox.getChildren().add(hbox5);
+
+		vboxMain.getChildren().add(root);
+		vboxMain.getChildren().add(vbox);
+
+		adminSetAllDisable();
+		HBox mainPane = new HBox(50);
+		mainPane.getChildren().addAll(vboxMain, teachersTable);
+		pane.setTop(menuBar);
+		pane.setBottom(mainPane);
+		Scene scene = new Scene(pane);
+
+		stage.setTitle("Teachers Panel");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+
