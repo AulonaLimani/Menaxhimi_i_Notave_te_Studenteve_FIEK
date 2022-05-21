@@ -193,3 +193,53 @@ itmAbout.setOnAction(e -> {
 //		studentsTable.setPrefWidth(500);
 //		studentsTable.setPrefHeight(200);
 		showTeachers();
+		
+		
+		VBox vbox = new VBox();
+		btnEdit = I18N.getButton("edit");
+		btnDelete = I18N.getButton("delete");
+		btnClear = I18N.getButton("clear");
+		btnSave = I18N.getButton("save");
+		HBox hbox = new HBox();
+		Button btnAddNew = I18N.getButton("addnew");
+		btnAddNew.setStyle("-fx-background-color:#33a135;-fx-text-fill:white;");
+		btnEdit.setStyle("-fx-background-color:#33a135;-fx-text-fill:white;");
+		btnDelete.setStyle("-fx-background-color:#a81414;-fx-text-fill:white;");
+		VBox vbox2 = new VBox();
+		Label label_1 = I18N.getLabel("teachersDetails");
+		label_1.setStyle("-fx-font-weight:bold;-fx-font-size:25;");
+		label_1.setPadding(new Insets(2, 18, 1, 25));
+		hbox.getChildren().addAll(btnAddNew, btnEdit, btnDelete);
+		hbox.setPadding(new Insets(10, 10, 10, 27));
+		hbox.setSpacing(20);
+		vbox2.getChildren().add(hbox);
+		vbox2.getChildren().add(label_1);
+
+		Label label_2 = I18N.getLabel("personalInformation");
+		label_2.setStyle("-fx-font-weight:bold;-fx-font-size:22;");
+		label_2.setPadding(new Insets(4, 1, 1, 4));
+
+		GridPane gridPane1 = new GridPane();
+		gridPane1.addRow(0, I18N.getLabel("nrID"));
+		gridPane1.addRow(0, teacherID);
+		gridPane1.addRow(1, I18N.getLabel("firstname"));
+		gridPane1.addRow(1, teacherName);
+		gridPane1.addRow(2, I18N.getLabel("fastname"));
+		gridPane1.addRow(2, teacherSurname);
+		gridPane1.addRow(3, I18N.getLabel("phone"));
+		gridPane1.addRow(3, phoneNumber);
+		gridPane1.addRow(4, I18N.getLabel("email"));
+		gridPane1.addRow(4, email);
+		gridPane1.addRow(5, I18N.getLabel("password"));
+		gridPane1.addRow(5, password);
+		gridPane1.addRow(6, I18N.getLabel("adress"));
+		gridPane1.addRow(6, addressID);
+		gridPane1.addRow(7, I18N.getLabel("subjectid"));
+		gridPane1.addRow(7, subjectID);
+
+		gridPane1.setPadding(new Insets(4, 12, 4, 22));
+
+		gridPane1.setVgap(10);
+		gridPane1.setHgap(15);
+
+
