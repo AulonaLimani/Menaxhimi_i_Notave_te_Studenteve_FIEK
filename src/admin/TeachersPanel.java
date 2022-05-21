@@ -29,3 +29,24 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import menu.I18N;
+
+
+public class TeachersPanel {
+	private Label teachersLabel = new Label("Teachers Registration Details");
+	private Button btnAddNew = new Button();
+	private Button btnEdit = new Button();
+	private Button btnDelete = new Button();
+	private Button btnClear = new Button();
+//	private Button btnSave = new Button("Save");
+	private Button btnSave = new Button();
+	static Label label_2 = new Label();
+
+	private TextField teacherID = new TextField();
+	private TextField teacherName = new TextField();
+	private TextField teacherSurname = new TextField();
+	private TextField phoneNumber = new TextField();
+	private TextField email = new TextField();
+	private PasswordField password = new PasswordField();
+	private TextField addressID = new TextField();
+	private TextField subjectID = new TextField();
+	private TableView teachersTable = new TableView();
