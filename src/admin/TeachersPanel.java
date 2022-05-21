@@ -103,3 +103,93 @@ public class TeachersPanel {
 				AdminHelp.about();
 			}
 		});
+itmAbout.setOnAction(e -> {
+			obj.openAbout();
+
+		});
+		pane.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.F1) {
+				obj.openAbout();
+
+			}
+			if (e.isAltDown() && e.getCode() == KeyCode.F4) {
+				stage.hide();
+			}
+		});
+
+		file.getItems().addAll(itmClose);
+		edit.getItems().addAll(itmStudents);
+		help.getItems().addAll(itmAbout);
+		help.getItems().addAll(itmHelp);
+
+		menuBar.getMenus().addAll(file, edit, help);
+
+		root.setTop(menuBar);
+
+		TableColumn<String, StudentsTable> column1 = I18N.getTblColumn("nrID");
+		column1.setCellValueFactory(new PropertyValueFactory("teacherID"));
+		column1.setPrefWidth(60);
+
+		TableColumn<String, StudentsTable> column2 = I18N.getTblColumn("firstname");
+		column2.setCellValueFactory(new PropertyValueFactory("teacherName"));
+		column2.setPrefWidth(150);
+
+		TableColumn<String, StudentsTable> column3 = I18N.getTblColumn("fastname");
+		column3.setCellValueFactory(new PropertyValueFactory("teacherSurname"));
+		column3.setPrefWidth(150);
+
+		TableColumn<String, StudentsTable> column4 = I18N.getTblColumn("phone");
+		column4.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
+		column4.setPrefWidth(120);
+
+		TableColumn<String, StudentsTable> column5 = I18N.getTblColumn("email");
+		column5.setCellValueFactory(new PropertyValueFactory("email"));
+		column5.setPrefWidth(120);
+
+		TableColumn<String, StudentsTable> column6 = I18N.getTblColumn("password");
+		column6.setCellValueFactory(new PropertyValueFactory("password"));
+		column6.setPrefWidth(120);
+
+		TableColumn<String, StudentsTable> column7 = I18N.getTblColumn("adress");
+		column7.setCellValueFactory(new PropertyValueFactory("addressID"));
+		column7.setPrefWidth(120);
+
+		TableColumn<String, StudentsTable> column8 = I18N.getTblColumn("subjectid");
+		column8.setCellValueFactory(new PropertyValueFactory("subjectID"));
+		column8.setPrefWidth(120);
+
+		teachersTable.getColumns().add(column1);
+		teachersTable.getColumns().add(column2);
+		teachersTable.getColumns().add(column3);
+		teachersTable.getColumns().add(column4);
+		teachersTable.getColumns().add(column5);
+		teachersTable.getColumns().add(column6);
+		teachersTable.getColumns().add(column7);
+		teachersTable.getColumns().add(column8);
+
+		teachersTable.setRowFactory(tv -> {
+			TableRow<TeachersTable> row = new TableRow<>();
+
+			row.setOnMouseClicked(e -> {
+				teacherID.setText(row.getItem().getTeacherID());
+				teacherName.setText(row.getItem().getTeacherName());
+				teacherSurname.setText(row.getItem().getTeacherSurname());
+				phoneNumber.setText(String.valueOf(row.getItem().getPhoneNumber()));
+				email.setText(String.valueOf(row.getItem().getEmail()));
+				password.setText(String.valueOf(row.getItem().getPassword()));
+				addressID.setText(String.valueOf(row.getItem().getAddressID()));
+				subjectID.setText(String.valueOf(row.getItem().getSubjectID()));
+				adminSetAllEnable();
+				teacherID.setDisable(true);
+				pane.setOnKeyPressed(ev -> {
+					if (ev.isControlDown() && ev.getCode() == KeyCode.D) {
+						deleteTeachers();
+					}
+				});
+
+			});
+			return row;
+		});
+//		studentsTable.setPrefWidth(500);
+//		studentsTable.setPrefHeight(200);
+		showTeachers();
