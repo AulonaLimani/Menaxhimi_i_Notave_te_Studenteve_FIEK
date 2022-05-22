@@ -11,3 +11,19 @@ import Help.teacherHelp;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+
+public class MainMenu
+{
+	public static MenuBar mainMenu()
+	{
+		MenuBar menuBar = new MenuBar();
+		Menu file = I18N.getMenu("file");
+		Menu edit = I18N.getMenu("editMenu");
+		Menu language = I18N.getMenu("language");
+		
+		MenuItem itmShqip = I18N.getMenuItem("shqip");
+		MenuItem itmEnglish = I18N.getMenuItem("english");
+		language.getItems().addAll(itmShqip, itmEnglish);
+		edit.getItems().add(language);
+		itmShqip.setOnAction(e -> {
+			I18N.setLocale(new Locale("al"));
