@@ -27,3 +27,25 @@ public class MainMenu
 		edit.getItems().add(language);
 		itmShqip.setOnAction(e -> {
 			I18N.setLocale(new Locale("al"));
+			});
+		itmEnglish.setOnAction(e ->{
+			I18N.setLocale(new Locale("en"));
+		});
+		Menu help = I18N.getMenu("help");
+		MenuItem itmHelp = I18N.getMenuItem("help");
+		help.getItems().add(itmHelp);
+		itmHelp.setOnAction(e->{
+			if(itmHelp.getText().equals("Help"))
+			{
+				HelpTeacher.about();	
+			}else {
+				teacherHelp.about();
+			}
+		});
+		
+		menuBar.getMenus().addAll(file, edit, help);
+	
+		return menuBar;
+	}
+}
+
