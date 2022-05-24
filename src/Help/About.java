@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 public class About {
 	public Text text = new Text(50, 50,
-			"Zhvillimi i Sistemit Interaktiv \nper llogaritjen e statistikave \nte notave ne arsimin e mesem");
+			"Zhvillimi i Sistemit Interaktiv \n për menaxhimin e notave të \n studentëve në FIEK");
 
 	public BorderPane getPane() {
 		HBox paneForButtons = new HBox(20);

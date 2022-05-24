@@ -53,6 +53,7 @@ public static void about() {
 			helpAboutStage.show();
 
 	}
+}
 
 
 
