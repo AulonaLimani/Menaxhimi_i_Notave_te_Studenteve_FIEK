@@ -1,7 +1,8 @@
 .root{
-    /*-fx-background-image: url();*/
-
+    -fx-background-image: url('images/black-color-solid.jpeg');
+    -fx-background-size: cover;
 }
+
 .label{
     -fx-text-fill: rgb(0, 205, 212);
     -fx-font-size:15px;
@@ -23,7 +24,7 @@
 }
 .title{
     -fx-font-size:35px;
-    -fx-text-fill: rgb(0, 205, 212);
+    -fx-text-fill: rgb(2, 94, 100);
     -fx-font-weight:bold;
 }
 .error{

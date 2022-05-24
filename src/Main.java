@@ -13,6 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import menu.I18N;
+import student.StudentLogin;
+import teacher.TeacherLogin;
 
 import java.util.Locale;
 

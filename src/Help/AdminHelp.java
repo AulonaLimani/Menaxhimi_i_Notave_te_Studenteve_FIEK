@@ -1,12 +1,16 @@
 package Help;
+
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+
 public class AdminHelp {
- 
-  Stage helpAboutStage = new Stage();
-		
+
+	public static void about() {
+
+		Stage helpAboutStage = new Stage();
+
 		WebView browser = new WebView();
 
 		WebEngine webEngine = browser.getEngine();
@@ -14,7 +18,7 @@ public class AdminHelp {
 		String url = AdminHelp.class.getResource("adminhelp.html").toExternalForm();
 
 		System.out.println("Local URL: " + url);
-		
+
 		webEngine.load(url);
 
 		Scene sc = new Scene(browser, 800, 500);
@@ -23,5 +27,5 @@ public class AdminHelp {
 		helpAboutStage.setScene(sc);
 
 		helpAboutStage.show();
-
+	}
 }

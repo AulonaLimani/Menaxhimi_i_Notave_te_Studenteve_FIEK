@@ -1,4 +1,5 @@
 package Help;
+
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -6,25 +7,26 @@ import javafx.stage.Stage;
 
 
 public class HelpStudentEn {
-public static void about() {
+    public static void about() {
 
-		Stage helpAboutStage = new Stage();
-		
-		WebView browser = new WebView();
+        Stage helpAboutStage = new Stage();
 
-		WebEngine webEngine = browser.getEngine();
+        WebView browser = new WebView();
 
-		String url = HelpStudentEn.class.getResource("studentHelp-en.html").toExternalForm();
+        WebEngine webEngine = browser.getEngine();
 
-		System.out.println("Local URL: " + url);
-		
-		webEngine.load(url);
+        String url = HelpStudentEn.class.getResource("studentHelp-en.html").toExternalForm();
 
-		Scene sc = new Scene(browser, 800, 500);
+        System.out.println("Local URL: " + url);
 
-		helpAboutStage.setTitle("Help");
-		helpAboutStage.setScene(sc);
+        webEngine.load(url);
 
-		helpAboutStage.show();
+        Scene sc = new Scene(browser, 800, 500);
 
+        helpAboutStage.setTitle("Help");
+        helpAboutStage.setScene(sc);
+
+        helpAboutStage.show();
+
+    }
 }
