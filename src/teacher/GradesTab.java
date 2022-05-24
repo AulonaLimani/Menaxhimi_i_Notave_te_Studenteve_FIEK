@@ -25,6 +25,7 @@ public class GradesTab {
     public GradesTab(Tab tab) {
         this.tab = tab;
     }
+
     public GradesTab() {
 
     }
@@ -56,7 +57,7 @@ public class GradesTab {
         deleteBtn = I18N.getButton("delete");
         clearBtn = I18N.getButton("clear");
 
- formPane.addRow(0, I18N.getLabel("periodid"), periodIDTxt);
+        formPane.addRow(0, I18N.getLabel("periodid"), periodIDTxt);
         formPane.addRow(1, I18N.getLabel("nrID"), studentIDTxt);
         formPane.addRow(2, I18N.getLabel("subjectid"), subjectIDTxt);
         formPane.addRow(7, I18N.getLabel("projects"), projectsTxt);
@@ -91,7 +92,7 @@ public class GradesTab {
             updateGrade();
         });
 
-         // Left Pane
+        // Left Pane
 
         VBox leftPane = new VBox(50);
 
@@ -128,7 +129,7 @@ public class GradesTab {
         column7.setCellValueFactory(new PropertyValueFactory("finalGrade"));
         column7.setPrefWidth(140);
 
-  gradesTable.getColumns().add(column1);
+        gradesTable.getColumns().add(column1);
         gradesTable.getColumns().add(column2);
         gradesTable.getColumns().add(column3);
         gradesTable.getColumns().add(column4);
@@ -174,8 +175,8 @@ public class GradesTab {
 
         tab.setContent(mainPane);
     }
-    
-     public void showGrades() {
+
+    public void showGrades() {
         List<Grades> grades = Grades.getGrades();
 
         ObservableList<Grades> gradesList = FXCollections.observableArrayList();
@@ -201,11 +202,11 @@ public class GradesTab {
 
         double finalPeriodMark = Double.parseDouble(projectsTxt.getText()) + Double.parseDouble(finalTestTxt.getText());
 //		double finalGrade = finalPeriodMark;
-        double finalGrade=5;
+        double finalGrade = 5;
 
         if (finalPeriodMark <= 100 && finalPeriodMark >= 90) {
             finalGrade = 10;
-        } else if (finalPeriodMark <90 && finalPeriodMark >= 80) {
+        } else if (finalPeriodMark < 90 && finalPeriodMark >= 80) {
             finalGrade = 9;
         } else if (finalPeriodMark < 80 && finalPeriodMark >= 70) {
             finalGrade = 8;
@@ -224,8 +225,8 @@ public class GradesTab {
             clearForm();
         }
     }
-    
-      public void updateGrade() {
+
+    public void updateGrade() {
         if (Grades.updateGrade(periodIDTxt.getText(), studentIDTxt.getText(), subjectIDTxt.getText(),
                 Double.parseDouble(projectsTxt.getText()), Double.parseDouble(finalTestTxt.getText()),
                 Double.parseDouble(finalPeriodMarkTxt.getText()), Double.parseDouble(finalGradeTxt.getText()))) {
@@ -240,5 +241,6 @@ public class GradesTab {
             clearForm();
         }
     }
+}
 
 
