@@ -1,4 +1,4 @@
-# Menaxhimi_i_Notave_te_Studenteve_KNK
+# Menaxhimi_i_Notave_te_Studenteve_FIEK
 Projekti në lëndën Komunikimi Njeri-Kompjuter.
 
 Anetaret e grupit 3:
